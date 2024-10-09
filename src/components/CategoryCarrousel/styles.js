@@ -16,8 +16,9 @@ padding: 20px;
 
 export const ContainerItens = Styled.div`
 width: 100%;
-height: 200px;
+height: 120px;
 background: url('${(props) => props.image}');
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 border: 2px solid black;
 background-size: cover;
 background-position: center ;
@@ -35,7 +36,7 @@ font-weight: 700;
 background-color:  rgba(0, 0, 0, 0.7);
 padding: 5px;
 border-radius: 10px;
-margin-top: 120px;
+margin-top: 30px;
 
 &:hover{
     background-color:  rgba(0, 0, 0, 0.8);

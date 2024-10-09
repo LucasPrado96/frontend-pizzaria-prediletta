@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import {api} from '../../services/api'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { Container,  ContainerItens, Title, TextOffers, } from './styles'
-import { Button } from '../Button'
+import { Container, Title,  } from './styles'
+import { CardProduct } from '../CardProduct'
+
 
 function OfferCarroussel(){
     const [offers, setOffers] = useState([])
@@ -24,7 +25,7 @@ function OfferCarroussel(){
 
     const responsive = {
         superLargeDesktop: {
-          // the naming can be any, depends on you.
+        
           breakpoint: { max: 4000, min: 3000 },
           items: 5
         },
@@ -54,17 +55,11 @@ function OfferCarroussel(){
            removeArrowOnDeviceType={["tablet", "mobile"]}
            >
                 {offers && offers.map(offer => 
-                     <ContainerItens key={offer.id}>
-                      <img src={offer.url}/>
-
-                      <TextOffers>
-                      <p>{offer.name}</p>
-                      <p>{offer.price}</p>
-                    
-                      </TextOffers>
+                     <CardProduct key={offer.id} product={offer}>
                      
+                    
                       
-                     </ContainerItens>
+                     </CardProduct>
                 
                  )}
                   

@@ -39,32 +39,4 @@ justify-content: center;
 padding: 10px;
 `
 
-export const ContainerItens = Styled.div`
-background-color: rgba(0, 0, 0, 0.5);
-border-radius: 15px;
-height: 150px;
-width: 380px;
-display: flex;
-flex-direction: row;
 
-
-img{
-    width: 180px;
-    border-radius: 15px;
-    max-width: 180px;
-    max-height: 100px;
-    object-fit: cover;
-    display: flex;
-    align-items: center;
-    padding: 8px;
-}
-
-
-
-p{
-color: white;
-font-size: 15px;
-border-radius: 10px;
-}
-
-`
