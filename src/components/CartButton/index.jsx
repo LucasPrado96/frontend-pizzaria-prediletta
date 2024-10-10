@@ -5,6 +5,8 @@ export function CartButtom({...props}){
 
 
     return(
-        <ContainerButton {...props}><img src={VectorCart}/></ContainerButton>
+        <ContainerButton {...props}>
+            <img src={VectorCart} alt='cartIcon-img'/>
+        </ContainerButton>
     )
 }

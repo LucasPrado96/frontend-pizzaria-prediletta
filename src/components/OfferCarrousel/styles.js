@@ -5,17 +5,19 @@ import Bg from '../../assets/bg1.png'
 
 export const Container = Styled.div`
 background: url('${Bg}');
+background-size: cover ;
+background-position: center;
+background-repeat: no-repeat;
 width: 100%;
-height: 100%;
-
+min-height: 100vh; 
+padding: 25px;
+overflow: hidden;
 
 
 .class-item{
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content:center ;
-
+    
+    
 }
 `
 
@@ -37,6 +39,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 10px;
+font-size: 35px;
 `
 
 

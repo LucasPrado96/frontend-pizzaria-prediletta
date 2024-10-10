@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Container, Img, Box1, Box2 } from "./styles";
 import { CartButtom } from "../CartButton";
-
+import { formatedPrice } from '../../utils/formatPrice'
 
 export function CardProduct({ product }) {
 
@@ -17,8 +17,11 @@ export function CardProduct({ product }) {
                 </div>
 
                 <div className="div-buttom">
-                    <p>{product.name}</p>
-                    <strong>{product.price}</strong>
+                    <div>
+                        <p>{product.name}</p>
+                        <strong>{formatedPrice(product.price)}</strong>
+                    </div>
+                   
                     <CartButtom></CartButtom>
                 </div>
 
@@ -27,7 +30,7 @@ export function CardProduct({ product }) {
 
             <Box2>
 
-                <p>description description, description, description</p>
+                <p>{product.description}</p>
             </Box2>
 
         </Container>

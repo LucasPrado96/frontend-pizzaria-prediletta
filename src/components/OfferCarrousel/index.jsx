@@ -6,6 +6,7 @@ import { Container, Title,  } from './styles'
 import { CardProduct } from '../CardProduct'
 
 
+
 function OfferCarroussel(){
     const [offers, setOffers] = useState([])
 
@@ -34,8 +35,15 @@ function OfferCarroussel(){
           items: 3
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
+          breakpoint: { max: 1024, min: 690 },
           items: 2
+          
+        },
+
+        tabletmenor: {
+          breakpoint: { max: 689, min: 464 },
+          items: 1
+          
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
@@ -51,8 +59,9 @@ function OfferCarroussel(){
            <Carousel 
            responsive={responsive}
            infinite = {true}
+          
            itemClass='class-item'
-           removeArrowOnDeviceType={["tablet", "mobile"]}
+           removeArrowOnDeviceType={["tablet", "mobile", "tabletmenor"]}
            >
                 {offers && offers.map(offer => 
                      <CardProduct key={offer.id} product={offer}>
