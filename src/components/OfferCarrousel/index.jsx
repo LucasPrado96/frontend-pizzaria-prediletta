@@ -7,8 +7,11 @@ import { CardProduct } from '../CardProduct'
 
 
 
+
 function OfferCarroussel(){
     const [offers, setOffers] = useState([])
+
+  
 
     useEffect(() => {
       async  function getProducts(){

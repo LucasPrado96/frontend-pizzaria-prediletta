@@ -10,10 +10,13 @@ import * as yup from "yup"
 import {api} from '../../services/api'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { useUser } from '../../hooks/UserContext'
+
 
 
 export function Login() {
 
+    const {putUserData} = useUser()
     const navigate = useNavigate()
 
     const schema = yup.object({
@@ -54,7 +57,8 @@ export function Login() {
             error: 'Email ou Senha Incorretos',
         },
      )
-     localStorage.setItem('userdata-predilleta', data.token)
+     
+     putUserData(data)
  
     };
 

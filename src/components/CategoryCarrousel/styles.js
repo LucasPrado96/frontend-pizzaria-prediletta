@@ -1,5 +1,6 @@
 import Styled from "styled-components";
 import Bg from '../../assets/bg1.png'
+import {Link} from 'react-router-dom'
 
 
 export const Container = Styled.div`
@@ -12,11 +13,13 @@ height: 100%;
 .class-item{
     padding: 20px;
 }
+
+
 `
 
 
 
-export const ContainerItens = Styled.div`
+export const ContainerItens = Styled(Link)`
 width: 100%;
 height: 160px;
 background: url('${(props) => props.image}');
@@ -29,6 +32,7 @@ border-radius: 15px;
 display: flex;
 align-items: center;
 cursor: pointer;
+text-decoration: none;
 
 
 p{

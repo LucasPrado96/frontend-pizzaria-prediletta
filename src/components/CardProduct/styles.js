@@ -8,7 +8,7 @@ border-radius: 15px;
 width: 400px;
 display: flex;
 flex-direction: column;
-height: 400px;
+height: 420px;
 
 
 

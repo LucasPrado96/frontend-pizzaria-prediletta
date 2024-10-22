@@ -3,9 +3,14 @@ import {api} from '../../services/api'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { Container,  ContainerItens, } from './styles'
+import { useNavigate } from 'react-router-dom'
+
 
 function CategoryCarroussel(){
+
     const [categories, setCategories] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
       async  function getCategories(){
@@ -49,7 +54,15 @@ function CategoryCarroussel(){
            removeArrowOnDeviceType={["tablet", "mobile"]}
            >
                 {categories && categories.map(category => 
-                     <ContainerItens key={category.id} image={category.url}><p>{category.name}</p></ContainerItens>
+                     <ContainerItens onClick={() => {navigate({
+                      pathname: '/products',
+                      search: `?categoria=${category.id}`
+                     })}}
+                      key={category.id} image={category.url}>
+                      
+                        <p>{category.name}</p>
+
+                     </ContainerItens>
                  )}
            </Carousel>
         </Container>

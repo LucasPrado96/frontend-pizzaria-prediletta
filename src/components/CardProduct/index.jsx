@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import { Container, Img, Box1, Box2 } from "./styles";
 import { CartButtom } from "../CartButton";
 import { formatedPrice } from '../../utils/formatPrice'
+import { useCart } from "../../hooks/CartContext";
 
 export function CardProduct({ product }) {
-
+    const {putItemToCart} = useCart()
 
     return (
 
@@ -22,7 +23,7 @@ export function CardProduct({ product }) {
                         <strong>{formatedPrice(product.price)}</strong>
                     </div>
                    
-                    <CartButtom></CartButtom>
+                    <CartButtom onClick={() => putItemToCart(product)}></CartButtom>
                 </div>
 
              
