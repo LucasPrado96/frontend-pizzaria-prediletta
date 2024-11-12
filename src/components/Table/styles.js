@@ -43,7 +43,7 @@ export const Header = Styled.thead`
 `
 
 export const Tr = Styled.tr`
-height: 50px;
+height: 120px;
 
 
 `

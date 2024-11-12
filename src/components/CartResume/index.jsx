@@ -2,9 +2,8 @@ import { Container, Header, ContainerTop, ContainerBottom, Main, ExtraContainer 
 import {Button} from '../Button'
 import { formatedPrice } from '../../utils/formatPrice'
 import { useCart } from '../../hooks/CartContext'
-import {api} from '../../services/api'
-import { toast } from 'react-toastify'
-// import { useNavigate } from 'react-router-dom'
+
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 
@@ -12,10 +11,11 @@ import { useState } from 'react'
 
 function CartResume() {
 
-const { cartItems, clearCart } = useCart()
+const { cartItems } = useCart()
 const [borda, setBorda] = useState('')
 const [bordaValor, setBordaValor] = useState(0)
 
+const navigate = useNavigate()
 
 
 const somaTotal = cartItems.map((itens) => {
@@ -43,40 +43,14 @@ function handleExtraChecked(e){
         } 
 }
 
-async function submitOrder(){
-  const products = cartItems.map(prod => {
-    return {
-        id: prod.id, 
-        quantity: prod.quantity, 
-        borda,
-        } 
-  })
-
-  try {
-    const { status } = await api.post('/orders', {products},
-        {
-            validateStatus: () => true,
-        },
-
-    )
-    if (status === 201 || status === 200) {
-        toast.success('Seu pedido foi Enviado com sucesso')
-        clearCart()
-    } else if (status === 400) {
-        toast.error('Algo deu errado, tente novamente')
-        
-    } else {
-        throw new Error();
-    }
+function goToCheckOut(){
  
-// eslint-disable-next-line no-unused-vars
-} catch (err) {
-    toast.error('Falha no pedido')
+    navigate( '/checkout', {   
+        state: {cartItems, somaTotal, borda, bordaValor }
+    })
   
-}
 
 
-    
 }
 
     return (
@@ -139,7 +113,7 @@ async function submitOrder(){
 
             </Main>  
             
-            <Button onClick={submitOrder}>Continuar</Button>
+            <Button onClick={goToCheckOut}>Continuar</Button>
         </Container>
     )
 }

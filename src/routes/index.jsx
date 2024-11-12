@@ -5,7 +5,12 @@ import { Home } from "../containers/home";
 import { Register } from '../containers/Register'
 import { Products} from '../containers/Products'
 import { Cart } from "../containers/Cart";
+import {Checkout} from '../containers/Checkout'
+import {Finished} from '../containers/OrderComplete'
+import { AdmScreem } from "../containers/Admin";
+import PrivateRoutes from "./privateRoutes";
 
+import paths from "../constants/index";
 
 export const Routes = createBrowserRouter([
 
@@ -16,24 +21,55 @@ export const Routes = createBrowserRouter([
 
     {
         path: '/',
-        element: <Home/>,
+        element:<PrivateRoutes element={<Home/>}/>,
     },
 
     {
         path: '/register',
-        element: <Register/>
+        element: <Register/>,
     },
 
     {
         path: '/products',
-        element: <Products/>
+        element: <PrivateRoutes element={<Products/>}/>,
     },
 
     {
         path: '/carrinho',
-        element: <Cart/>
-    }
+        element:  <PrivateRoutes element={<Cart/>}/>,
+    },
 
+    {
+        path: '/checkout',
+        element: <PrivateRoutes element={<Checkout/>}/>,
+    },
+    
+    {
+        path: '/finalizado',
+        element: <PrivateRoutes element={<Finished/>}/>,
+    },
+
+
+    {
+        path: paths.Order,
+        element: <PrivateRoutes element={<AdmScreem/>} isAdmin={true}/>,
+    }, 
+
+    
+    {
+        path: paths.Products,
+        element: <PrivateRoutes element={<AdmScreem/>} isAdmin={true}/>,
+    },
+
+    {
+        path: paths.NewProduct,
+        element: <PrivateRoutes element={<AdmScreem/>} isAdmin={true}/>,
+    },
+
+    {
+        path: paths.EditProduct,
+        element: <PrivateRoutes element={<AdmScreem/>} isAdmin={true}/>,
+    }
 
 
 ])

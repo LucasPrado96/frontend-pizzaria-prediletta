@@ -11,6 +11,7 @@ import {api} from '../../services/api'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../hooks/UserContext'
+import paths from '../../constants'
 
 
 
@@ -46,9 +47,18 @@ export function Login() {
             success: {
                 render(){
                     setTimeout(() => {
-                       toast.success(
-                        navigate('/')
-                       )
+
+                        if(data.admin){
+                            toast.success(
+                                navigate(paths.Order)
+                            )
+                           
+                        } else{
+                            toast.success(
+                                navigate('/')
+                            )
+                        }
+                      
                     }, 1000)
                     return 'Seja Bem-vindo(a)'
                 },

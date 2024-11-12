@@ -1,4 +1,4 @@
-import { Container, ContainerLeft, ContainerRight, HeaderLink, LogoutLink, MenuResponsivo, MenuWeb, OptionMenu, HeaderLinkResponsivo } from './styles'
+import { Container,  ContainerLeft, ContainerRight, HeaderLink, LogoutLink, MenuResponsivo, MenuWeb, OptionMenu, HeaderLinkResponsivo } from './styles'
 import Logo from '../../assets/logo.png'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
@@ -8,13 +8,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import CallIcon from '@mui/icons-material/Call';
-import { useState } from 'react';
+import {useState } from 'react';
+
 
 
 function Header() {
 
     const { userInfo, Logout } = useUser()
     const [openCloset, setOpenCloset] = useState(false)
+   
     const navigate = useNavigate()
 
     function logoutToLogin() {
@@ -26,6 +28,8 @@ function Header() {
         setOpenCloset(!openCloset)
      
     }
+
+
 
     return (
         <Container>
@@ -57,6 +61,8 @@ function Header() {
 
                 <p>Olá, <strong>{userInfo.name}</strong></p>
 
+               
+
                 <HeaderLink to={'/carrinho'}>
                     <ShoppingCartIcon fontSize='medium' />
                 </HeaderLink>
@@ -75,6 +81,7 @@ function Header() {
 
                 </ContainerRight>
 
+                  
 
                 <ContainerLeft>
                     <PersonIcon style={{ width: '60px' }} />

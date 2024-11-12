@@ -12,6 +12,10 @@ justify-content: space-evenly;
 
 `;
 
+
+
+
+
 export const ContainerRight = Styled.div`
 width: 100%;
 display: flex;

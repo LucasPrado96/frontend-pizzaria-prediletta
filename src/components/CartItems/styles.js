@@ -34,8 +34,11 @@ button{
 export const ProductImage = Styled.img`
     max-width: 100px;
     width: 100px;
+    height: 120px;
+    object-fit: cover;
     min-width: 50px;
     border-radius: 8px;
+    max-height: 100px;
 
     @media(max-width: 344px){
         width: 70px;
